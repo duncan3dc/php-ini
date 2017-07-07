@@ -20,6 +20,25 @@ $ composer require duncan3dc/php-ini
 ```
 
 
+## Getting Started
+
+```php
+use duncan3dc\PhpIni\Ini;
+
+require __DIR__ . "/vendor/autoload.php";
+
+$ini = new Ini;
+
+$ini->set("include_path", "/tmp/cool-php-stuff");
+
+require "my-cool-file.php";
+
+$ini->restore("include_path");
+```
+
+_Read more at http://duncan3dc.github.io/php-ini/_
+
+
 ## Changelog
 A [Changelog](CHANGELOG.md) has been available since the beginning of time
 
