@@ -1,0 +1,32 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+  - nightly
+
+matrix:
+  allow_failures:
+  - php: nightly
+
+env:
+  - COMPOSER_OPTS=""
+  - COMPOSER_OPTS="--prefer-lowest"
+
+install:
+  - composer self-update --snapshot
+  - composer update $COMPOSER_OPTS
+
+script:
+  - vendor/bin/phpunit --coverage-clover=clover.xml
+  - tests/lint.sh
+
+after_success:
+  - vendor/bin/coveralls
+
+git:
+  depth: 5
+
+dist: trusty
+sudo: false
