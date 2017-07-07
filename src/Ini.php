@@ -9,11 +9,6 @@ class Ini
      */
     private $original = [];
 
-    /**
-     * @var array $current The current ini settings.
-     */
-    private $current = [];
-
 
     /**
      * Update an ini setting.
@@ -27,13 +22,6 @@ class Ini
     {
         $key = (string) $key;
         $value = (string) $value;
-
-        # If we've already overridden this setting to the same value then we don't need to do anything
-        if (array_key_exists($key, $this->current)) {
-            if ($this->current[$key] === $value) {
-                return $this;
-            }
-        }
 
         # If we've not stashed the original value of this setting then get it now
         if (!array_key_exists($key, $this->original)) {
@@ -86,7 +74,6 @@ class Ini
         }
 
         $this->original = [];
-        $this->current = [];
 
         return $this;
     }

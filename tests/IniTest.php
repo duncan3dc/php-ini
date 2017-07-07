@@ -76,4 +76,16 @@ class IniTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($this->ini, $result);
         $this->assertSame("/tmp/cleanup", ini_get("include_path"));
     }
+
+
+    public function testExternalActions()
+    {
+        $this->ini->set("include_path", "/tmp/custom");
+
+        ini_set("include_path", "/tmp/external");
+        $this->assertSame("/tmp/external", $this->ini->get("include_path"));
+
+        $this->ini->set("include_path", "/tmp/custom");
+        $this->assertSame("/tmp/custom", $this->ini->get("include_path"));
+    }
 }
