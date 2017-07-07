@@ -36,6 +36,21 @@ require "my-cool-file.php";
 $ini->restore("include_path");
 ```
 
+```php
+use duncan3dc\PhpIni\State;
+
+$ini = new State;
+
+$ini->set("memory_limit", "1M");
+
+$ini->call(function () {
+    # This code can't use much memory
+});
+
+# This code can use as much memory as the default memory_limit allows
+eatAllTheMemory();
+```
+
 _Read more at http://duncan3dc.github.io/php-ini/_
 
 
