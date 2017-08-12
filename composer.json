@@ -19,9 +19,9 @@
         "satooshi/php-coveralls": "^1.0"
     },
     "autoload": {
-        "psr-4": {
-            "duncan3dc\\PhpIni\\": "src/",
-            "duncan3dc\\PhpIniTests\\": "tests/"
-        }
+        "psr-4": {"duncan3dc\\PhpIni\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"duncan3dc\\PhpIniTests\\": "tests/"}
     }
 }
