@@ -38,6 +38,28 @@ class StateTest extends \PHPUnit_Framework_TestCase
     }
 
 
+    public function testCallException()
+    {
+        ini_set("include_path", "/tmp/default");
+
+        $this->state->set("include_path", "/tmp/override");
+
+        $this->assertSame("/tmp/default", ini_get("include_path"));
+
+        try {
+            $this->state->call(function () {
+                $this->assertSame("/tmp/override", ini_get("include_path"));
+                throw new \Exception("Whoops");
+            });
+        } catch (\Exception $e) {
+            $this->assertSame("Whoops", $e->getMessage());
+        }
+
+        # Ensure we still cleaned up, even if an exception was thrown
+        $this->assertSame("/tmp/default", ini_get("include_path"));
+    }
+
+
     public function testSet()
     {
         ini_set("include_path", "/tmp/default");
