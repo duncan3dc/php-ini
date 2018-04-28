@@ -3,10 +3,11 @@
 namespace duncan3dc\PhpIniTests;
 
 use duncan3dc\PhpIni\Ini;
+use PHPUnit\Framework\TestCase;
 use function ini_get;
 use function ini_set;
 
-class IniTest extends \PHPUnit_Framework_TestCase
+class IniTest extends TestCase
 {
     private $ini;
 
