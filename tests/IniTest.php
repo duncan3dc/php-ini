@@ -29,12 +29,17 @@ class IniTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    public function testGet()
+    public function testGet1()
     {
         $this->ini->set("include_path", "/tmp/ini-stuff");
 
         $result = $this->ini->get("include_path");
         $this->assertSame("/tmp/ini-stuff", $result);
+    }
+    public function testGet2()
+    {
+        $result = $this->ini->get("does_not_exist");
+        $this->assertNull($result);
     }
 
 

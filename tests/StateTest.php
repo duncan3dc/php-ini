@@ -74,4 +74,16 @@ class StateTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame("/tmp/default", ini_get("include_path"));
     }
+
+
+    public function testGet1()
+    {
+        $this->state->set("include_path", "/tmp/override");
+
+        $this->assertSame("/tmp/override", $this->state->get("include_path"));
+    }
+    public function testGet3()
+    {
+        $this->assertNull($this->state->get("does_not_exist"));
+    }
 }

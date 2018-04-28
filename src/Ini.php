@@ -31,7 +31,13 @@ class Ini implements ConfigInterface
      */
     public function get(string $key): ?string
     {
-        return ini_get($key);
+        $result = ini_get($key);
+
+        if ($result === false) {
+            return null;
+        }
+
+        return $result;
     }
 
 
