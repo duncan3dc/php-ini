@@ -3,6 +3,8 @@
 namespace duncan3dc\PhpIniTests;
 
 use duncan3dc\PhpIni\State;
+use function ini_get;
+use function ini_set;
 
 class StateTest extends \PHPUnit_Framework_TestCase
 {
