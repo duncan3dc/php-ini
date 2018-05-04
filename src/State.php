@@ -2,7 +2,7 @@
 
 namespace duncan3dc\PhpIni;
 
-class State
+class State implements ConfigInterface
 {
     /**
      * @var Ini $ini The php.ini directive manager.
@@ -32,14 +32,24 @@ class State
      *
      * @return $this
      */
-    public function set($key, $value)
+    public function set(string $key, string $value): ConfigInterface
     {
-        $key = (string) $key;
-        $value = (string) $value;
-
         $this->settings[$key] = $value;
 
         return $this;
+    }
+
+
+    /**
+     * Get a setting that is part of this state.
+     *
+     * @param string $key The name of the setting
+     *
+     * @return ?string
+     */
+    public function get(string $key): ?string
+    {
+        return $this->settings[$key] ?? null;
     }
 
 

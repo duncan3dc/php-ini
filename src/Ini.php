@@ -2,7 +2,7 @@
 
 namespace duncan3dc\PhpIni;
 
-class Ini
+class Ini implements ConfigInterface
 {
     /**
      * @var array $original The original ini settings to restore.
@@ -11,18 +11,10 @@ class Ini
 
 
     /**
-     * Update an ini setting.
-     *
-     * @param string $key The name of the setting to update
-     * @param string $value The value to set it to
-     *
-     * @return $this
+     * @inheritDoc
      */
-    public function set($key, $value)
+    public function set(string $key, string $value): ConfigInterface
     {
-        $key = (string) $key;
-        $value = (string) $value;
-
         # If we've not stashed the original value of this setting then get it now
         if (!array_key_exists($key, $this->original)) {
             $this->original[$key] = ini_get($key);
@@ -35,13 +27,9 @@ class Ini
 
 
     /**
-     * Get a current ini setting.
-     *
-     * @param string $key The name of the setting
-     *
-     * @return string|false
+     * @inheritDoc
      */
-    public function get($key)
+    public function get(string $key): ?string
     {
         return ini_get($key);
     }
@@ -52,7 +40,7 @@ class Ini
      *
      * @return $this
      */
-    public function restore($key)
+    public function restore(string $key): self
     {
         if (array_key_exists($key, $this->original)) {
             ini_set($key, $this->original[$key]);
@@ -67,7 +55,7 @@ class Ini
      *
      * @return $this
      */
-    public function cleanup()
+    public function cleanup(): self
     {
         foreach ($this->original as $key => $value) {
             ini_set($key, $value);
