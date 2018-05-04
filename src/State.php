@@ -60,8 +60,6 @@ class State
         $exception = null;
         try {
             $result = $callable(...$params);
-        } catch (\Exception $e) {
-            $exception = $e;
         } catch (\Throwable $e) {
             $exception = $e;
         }
