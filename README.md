@@ -4,9 +4,9 @@ Manage [php.ini](https://secure.php.net/manual/en/ini.list.php) directives on a 
 Full documentation is available at https://duncan3dc.github.io/php-ini/  
 PHPDoc API documentation is also available at [https://duncan3dc.github.io/php-ini/api/](https://duncan3dc.github.io/php-ini/api/namespaces/duncan3dc.Laravel.html)  
 
-[![Latest Stable Version](https://poser.pugx.org/duncan3dc/php-ini/version.svg)](https://packagist.org/packages/duncan3dc/php-ini)
-[![Build Status](https://travis-ci.org/duncan3dc/php-ini.svg?branch=master)](https://travis-ci.org/duncan3dc/php-ini)
-[![Coverage Status](https://coveralls.io/repos/github/duncan3dc/php-ini/badge.svg)](https://coveralls.io/github/duncan3dc/php-ini)
+[![release](https://poser.pugx.org/duncan3dc/php-ini/version.svg)](https://packagist.org/packages/duncan3dc/php-ini)
+[![build](https://travis-ci.org/duncan3dc/php-ini.svg?branch=master)](https://travis-ci.org/duncan3dc/php-ini)
+[![coverage](https://codecov.io/gh/duncan3dc/php-ini/graph/badge.svg)](https://codecov.io/gh/duncan3dc/php-ini)
 
 
 ## Installation

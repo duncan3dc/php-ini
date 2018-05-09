@@ -16,7 +16,6 @@
     },
     "require-dev": {
         "maglnet/composer-require-checker": "^0.2.1",
-        "php-coveralls/php-coveralls": "^2.0",
         "phpunit/phpunit": "^7.1"
     },
     "autoload": {
