@@ -18,8 +18,7 @@ install:
   - composer update $COMPOSER_OPTS
 
 script:
-  - vendor/bin/phpunit
-  - vendor/bin/composer-require-checker
+  - composer test
 
 jobs:
   include:
