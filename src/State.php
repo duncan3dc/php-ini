@@ -20,7 +20,7 @@ class State implements ConfigInterface
      */
     public function __construct()
     {
-        $this->ini = new Ini;
+        $this->ini = new Ini();
     }
 
 
@@ -57,7 +57,7 @@ class State implements ConfigInterface
      * Run some code using the previous provided ini settings.
      *
      * @param callable $callable $the code to run
-     * @param mixed $params Any parameters to pass to the callable
+     * @param mixed ...$params Any parameters to pass to the callable
      *
      * @return mixed The result of the callable
      */
@@ -67,6 +67,7 @@ class State implements ConfigInterface
             $this->ini->set($key, $value);
         }
 
+        $result = null;
         $exception = null;
         try {
             $result = $callable(...$params);

@@ -15,7 +15,8 @@
         "php": "^7.1"
     },
     "require-dev": {
-        "maglnet/composer-require-checker": "^0.2.1",
+        "maglnet/composer-require-checker": "^1.0",
+        "phpstan/phpstan": "^0.10.3",
         "phpunit/phpunit": "^7.1"
     },
     "autoload": {
@@ -27,7 +28,8 @@
     "scripts": {
         "test": [
             "vendor/bin/phpunit",
-            "vendor/bin/composer-require-checker"
+            "vendor/bin/composer-require-checker",
+            "vendor/bin/phpstan analyse --level=max src tests"
         ]
     }
 }
