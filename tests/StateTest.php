@@ -13,7 +13,7 @@ class StateTest extends TestCase
 
     public function setUp()
     {
-        $this->state = new State;
+        $this->state = new State();
     }
 
 

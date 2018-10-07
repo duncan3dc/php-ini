@@ -13,7 +13,7 @@ class IniTest extends TestCase
 
     public function setUp()
     {
-        $this->ini = new Ini;
+        $this->ini = new Ini();
     }
 
 
