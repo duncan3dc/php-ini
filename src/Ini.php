@@ -6,7 +6,7 @@ use function array_key_exists;
 use function ini_get;
 use function ini_set;
 
-class Ini implements ConfigInterface
+class Ini implements ConfigInterface, KeysInterface
 {
     /**
      * @var array $original The original ini settings to restore.

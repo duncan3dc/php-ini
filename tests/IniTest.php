@@ -34,9 +34,9 @@ class IniTest extends TestCase
 
     public function testGet1()
     {
-        $this->ini->set("include_path", "/tmp/ini-stuff");
+        $this->ini->set(Ini::INCLUDE_PATH, "/tmp/ini-stuff");
 
-        $result = $this->ini->get("include_path");
+        $result = $this->ini->get(Ini::INCLUDE_PATH);
         $this->assertSame("/tmp/ini-stuff", $result);
     }
     public function testGet2()
@@ -48,13 +48,13 @@ class IniTest extends TestCase
 
     public function testGetDefault()
     {
-        $expected = ini_get("include_path");
+        $expected = ini_get(Ini::INCLUDE_PATH);
         if (!$expected) {
             $this->markTestSkipped("Unable to find the current include_path");
             return;
         }
 
-        $result = $this->ini->get("include_path");
+        $result = $this->ini->get(Ini::INCLUDE_PATH);
 
         $this->assertSame($expected, $result);
     }
@@ -62,38 +62,38 @@ class IniTest extends TestCase
 
     public function testRestore()
     {
-        ini_set("include_path", "/tmp/restore");
+        ini_set(Ini::INCLUDE_PATH, "/tmp/restore");
 
-        $this->ini->set("include_path", "/tmp/ini-stuff");
+        $this->ini->set(Ini::INCLUDE_PATH, "/tmp/ini-stuff");
 
-        $this->assertSame("/tmp/ini-stuff", $this->ini->get("include_path"));
+        $this->assertSame("/tmp/ini-stuff", $this->ini->get(Ini::INCLUDE_PATH));
 
-        $result = $this->ini->restore("include_path");
+        $result = $this->ini->restore(Ini::INCLUDE_PATH);
         $this->assertSame($this->ini, $result);
-        $this->assertSame("/tmp/restore", ini_get("include_path"));
+        $this->assertSame("/tmp/restore", ini_get(Ini::INCLUDE_PATH));
     }
 
 
     public function testCleanup()
     {
-        ini_set("include_path", "/tmp/cleanup");
+        ini_set(Ini::INCLUDE_PATH, "/tmp/cleanup");
 
-        $this->ini->set("include_path", "/tmp/ini-stuff");
+        $this->ini->set(Ini::INCLUDE_PATH, "/tmp/ini-stuff");
 
         $result = $this->ini->cleanup();
         $this->assertSame($this->ini, $result);
-        $this->assertSame("/tmp/cleanup", ini_get("include_path"));
+        $this->assertSame("/tmp/cleanup", ini_get(Ini::INCLUDE_PATH));
     }
 
 
     public function testExternalActions()
     {
-        $this->ini->set("include_path", "/tmp/custom");
+        $this->ini->set(Ini::INCLUDE_PATH, "/tmp/custom");
 
-        ini_set("include_path", "/tmp/external");
-        $this->assertSame("/tmp/external", $this->ini->get("include_path"));
+        ini_set(Ini::INCLUDE_PATH, "/tmp/external");
+        $this->assertSame("/tmp/external", $this->ini->get(Ini::INCLUDE_PATH));
 
-        $this->ini->set("include_path", "/tmp/custom");
-        $this->assertSame("/tmp/custom", $this->ini->get("include_path"));
+        $this->ini->set(Ini::INCLUDE_PATH, "/tmp/custom");
+        $this->assertSame("/tmp/custom", $this->ini->get(Ini::INCLUDE_PATH));
     }
 }

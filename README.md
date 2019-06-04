@@ -1,4 +1,5 @@
 # php-ini
+
 Manage [php.ini](https://secure.php.net/manual/en/ini.list.php) directives on a temporary basis.
 
 Full documentation is available at https://duncan3dc.github.io/php-ini/  
@@ -22,6 +23,9 @@ $ composer require duncan3dc/php-ini
 
 ## Getting Started
 
+Use `\duncan3dc\PhpIni\Ini::set` method to set the value of an `ini` option. 
+Well known `ini` keys are accessible as `\duncan3dc\PhpIni\Ini` constants. 
+
 ```php
 use duncan3dc\PhpIni\Ini;
 
@@ -29,19 +33,20 @@ require __DIR__ . "/vendor/autoload.php";
 
 $ini = new Ini;
 
-$ini->set("include_path", "/tmp/cool-php-stuff");
+$ini->set(Ini::INCLUDE_PATH, "/tmp/cool-php-stuff");
 
 require "my-cool-file.php";
 
-$ini->restore("include_path");
+$ini->restore(Ini::INCLUDE_PATH);
 ```
 
 ```php
+use duncan3dc\PhpIni\Ini;
 use duncan3dc\PhpIni\State;
 
 $ini = new State;
 
-$ini->set("memory_limit", "1M");
+$ini->set(Ini::MEMORY_LIMIT, "1M");
 
 $ini->call(function () {
     # This code can't use much memory
