@@ -1,6 +1,19 @@
 Changelog
 =========
 
+## 1.1.0 - 2019-10-05
+
+### Added
+
+* [Settings] Provide some common ini settings as class constants.
+
+### Changed
+
+* [Support] Added support for PHP 7.3
+* [Support] Dropped support for PHP 7.1
+
+--------
+
 ## 1.0.0 - 2018-05-04
 
 ### Added

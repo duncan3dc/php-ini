@@ -1,0 +1,72 @@
+<?php
+
+namespace duncan3dc\PhpIni\Settings;
+
+interface Xdebug
+{
+    public const AUTO_TRACE = "xdebug.auto_trace";
+    public const CLI_COLOR = "xdebug.cli_color";
+    public const COLLECT_ASSIGNMENTS = "xdebug.collect_assignments";
+    public const COLLECT_INCLUDES = "xdebug.collect_includes";
+    public const COLLECT_PARAMS = "xdebug.collect_params";
+    public const COLLECT_RETURN = "xdebug.collect_return";
+    public const COLLECT_VARS = "xdebug.collect_vars";
+    public const COVERAGE_ENABLE = "xdebug.coverage_enable";
+    public const DEFAULT_ENABLE = "xdebug.default_enable";
+    public const DUMP_COOKIE = "xdebug.dump.COOKIE";
+    public const DUMP_ENV = "xdebug.dump.ENV";
+    public const DUMP_FILES = "xdebug.dump.FILES";
+    public const DUMP_GET = "xdebug.dump.GET";
+    public const DUMP_POST = "xdebug.dump.POST";
+    public const DUMP_REQUEST = "xdebug.dump.REQUEST";
+    public const DUMP_SERVER = "xdebug.dump.SERVER";
+    public const DUMP_SESSION = "xdebug.dump.SESSION";
+    public const DUMP_GLOBALS = "xdebug.dump_globals";
+    public const DUMP_ONCE = "xdebug.dump_once";
+    public const DUMP_UNDEFINED = "xdebug.dump_undefined";
+    public const EXTENDED_INFO = "xdebug.extended_info";
+    public const FILE_LINK_FORMAT = "xdebug.file_link_format";
+    public const FILENAME_FORMAT = "xdebug.filename_format";
+    public const FORCE_DISPLAY_ERRORS = "xdebug.force_display_errors";
+    public const FORCE_ERROR_REPORTING = "xdebug.force_error_reporting";
+    public const GC_STATS_ENABLE = "xdebug.gc_stats_enable";
+    public const GC_STATS_OUTPUT_DIR = "xdebug.gc_stats_output_dir";
+    public const GC_STATS_OUTPUT_NAME = "xdebug.gc_stats_output_name";
+    public const HALT_LEVEL = "xdebug.halt_level";
+    public const IDEKEY = "xdebug.idekey";
+    public const MAX_NESTING_LEVEL = "xdebug.max_nesting_level";
+    public const MAX_STACK_FRAMES = "xdebug.max_stack_frames";
+    public const OVERLOAD_VAR_DUMP = "xdebug.overload_var_dump";
+    public const PROFILER_AGGREGATE = "xdebug.profiler_aggregate";
+    public const PROFILER_APPEND = "xdebug.profiler_append";
+    public const PROFILER_ENABLE = "xdebug.profiler_enable";
+    public const PROFILER_ENABLE_TRIGGER = "xdebug.profiler_enable_trigger";
+    public const PROFILER_ENABLE_TRIGGER_VALUE = "xdebug.profiler_enable_trigger_value";
+    public const PROFILER_OUTPUT_DIR = "xdebug.profiler_output_dir";
+    public const PROFILER_OUTPUT_NAME = "xdebug.profiler_output_name";
+    public const REMOTE_ADDR_HEADER = "xdebug.remote_addr_header";
+    public const REMOTE_AUTOSTART = "xdebug.remote_autostart";
+    public const REMOTE_CONNECT_BACK = "xdebug.remote_connect_back";
+    public const REMOTE_COOKIE_EXPIRE_TIME = "xdebug.remote_cookie_expire_time";
+    public const REMOTE_ENABLE = "xdebug.remote_enable";
+    public const REMOTE_HANDLER = "xdebug.remote_handler";
+    public const REMOTE_HOST = "xdebug.remote_host";
+    public const REMOTE_LOG = "xdebug.remote_log";
+    public const REMOTE_MODE = "xdebug.remote_mode";
+    public const REMOTE_PORT = "xdebug.remote_port";
+    public const REMOTE_TIMEOUT = "xdebug.remote_timeout";
+    public const SCREAM = "xdebug.scream";
+    public const SHOW_ERROR_TRACE = "xdebug.show_error_trace";
+    public const SHOW_EXCEPTION_TRACE = "xdebug.show_exception_trace";
+    public const SHOW_LOCAL_VARS = "xdebug.show_local_vars";
+    public const SHOW_MEM_DELTA = "xdebug.show_mem_delta";
+    public const TRACE_ENABLE_TRIGGER = "xdebug.trace_enable_trigger";
+    public const TRACE_ENABLE_TRIGGER_VALUE = "xdebug.trace_enable_trigger_value";
+    public const TRACE_FORMAT = "xdebug.trace_format";
+    public const TRACE_OPTIONS = "xdebug.trace_options";
+    public const TRACE_OUTPUT_DIR = "xdebug.trace_output_dir";
+    public const TRACE_OUTPUT_NAME = "xdebug.trace_output_name";
+    public const VAR_DISPLAY_MAX_CHILDREN = "xdebug.var_display_max_children";
+    public const VAR_DISPLAY_MAX_DATA = "xdebug.var_display_max_data";
+    public const VAR_DISPLAY_MAX_DEPTH = "xdebug.var_display_max_depth";
+}

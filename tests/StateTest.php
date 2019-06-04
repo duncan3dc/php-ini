@@ -2,6 +2,8 @@
 
 namespace duncan3dc\PhpIniTests;
 
+use duncan3dc\PhpIni\Ini;
+use duncan3dc\PhpIni\Settings;
 use duncan3dc\PhpIni\State;
 use PHPUnit\Framework\TestCase;
 
@@ -47,15 +49,15 @@ final class StateTest extends TestCase
 
     public function testCallException1(): void
     {
-        ini_set("include_path", "/tmp/default");
+        ini_set(Settings::INCLUDE_PATH, "/tmp/default");
 
-        $this->state->set("include_path", "/tmp/override");
+        $this->state->set(Settings::INCLUDE_PATH, "/tmp/override");
 
-        $this->assertSame("/tmp/default", ini_get("include_path"));
+        $this->assertSame("/tmp/default", ini_get(Settings::INCLUDE_PATH));
 
         try {
             $this->state->call(function () {
-                $this->assertSame("/tmp/override", ini_get("include_path"));
+                $this->assertSame("/tmp/override", ini_get(Settings::INCLUDE_PATH));
                 throw new \Exception("Whoops");
             });
         } catch (\Exception $e) {
@@ -63,31 +65,31 @@ final class StateTest extends TestCase
         }
 
         # Ensure we still cleaned up, even if an exception was thrown
-        $this->assertSame("/tmp/default", ini_get("include_path"));
+        $this->assertSame("/tmp/default", ini_get(Settings::INCLUDE_PATH));
     }
 
 
     public function testSet1(): void
     {
-        ini_set("include_path", "/tmp/default");
+        ini_set(Settings::INCLUDE_PATH, "/tmp/default");
 
-        $this->state->set("include_path", "/tmp/override");
+        $this->state->set(Settings::INCLUDE_PATH, "/tmp/override");
 
-        $this->assertSame("/tmp/default", ini_get("include_path"));
+        $this->assertSame("/tmp/default", ini_get(Settings::INCLUDE_PATH));
 
         $this->state->call(function () {
-            $this->assertSame("/tmp/override", ini_get("include_path"));
+            $this->assertSame("/tmp/override", ini_get(Settings::INCLUDE_PATH));
         });
 
-        $this->assertSame("/tmp/default", ini_get("include_path"));
+        $this->assertSame("/tmp/default", ini_get(Settings::INCLUDE_PATH));
     }
 
 
     public function testGet1(): void
     {
-        $this->state->set("include_path", "/tmp/override");
+        $this->state->set(Settings::INCLUDE_PATH, "/tmp/override");
 
-        $this->assertSame("/tmp/override", $this->state->get("include_path"));
+        $this->assertSame("/tmp/override", $this->state->get(Settings::INCLUDE_PATH));
     }
 
 

@@ -24,24 +24,27 @@ $ composer require duncan3dc/php-ini
 
 ```php
 use duncan3dc\PhpIni\Ini;
+use duncan3dc\PhpIni\Settings;
 
 require __DIR__ . "/vendor/autoload.php";
 
 $ini = new Ini;
 
-$ini->set("include_path", "/tmp/cool-php-stuff");
+$ini->set(Settings::INCLUDE_PATH, "/tmp/cool-php-stuff");
 
 require "my-cool-file.php";
 
-$ini->restore("include_path");
+$ini->restore(Settings::INCLUDE_PATH);
 ```
 
 ```php
+use duncan3dc\PhpIni\Ini;
+use duncan3dc\PhpIni\Settings;
 use duncan3dc\PhpIni\State;
 
 $ini = new State;
 
-$ini->set("memory_limit", "1M");
+$ini->set(Settings::MEMORY_LIMIT, "1M");
 
 $ini->call(function () {
     # This code can't use much memory
