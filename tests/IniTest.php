@@ -8,23 +8,27 @@ use PHPUnit\Framework\TestCase;
 use function ini_get;
 use function ini_set;
 
-class IniTest extends TestCase
+final class IniTest extends TestCase
 {
+    /** @var Ini */
     private $ini;
 
-    public function setUp()
+
+    /** @inheritDoc */
+    public function setUp(): void
     {
         $this->ini = new Ini();
     }
 
 
-    public function tearDown()
+    /** @inheritDoc */
+    public function tearDown(): void
     {
         $this->ini->cleanup();
     }
 
 
-    public function testSet1()
+    public function testSet1(): void
     {
         $result = $this->ini->set("include_path", "/tmp/does-not-exist");
 
@@ -33,21 +37,23 @@ class IniTest extends TestCase
     }
 
 
-    public function testGet1()
+    public function testGet1(): void
     {
         $this->ini->set("include_path", "/tmp/ini-stuff");
 
         $result = $this->ini->get("include_path");
         $this->assertSame("/tmp/ini-stuff", $result);
     }
-    public function testGet2()
+
+
+    public function testGet2(): void
     {
         $result = $this->ini->get("does_not_exist");
         $this->assertNull($result);
     }
 
 
-    public function testGetDefault()
+    public function testGetDefault1(): void
     {
         $expected = ini_get("include_path");
         if (!$expected) {
@@ -61,7 +67,7 @@ class IniTest extends TestCase
     }
 
 
-    public function testRestore()
+    public function testRestore1(): void
     {
         ini_set("include_path", "/tmp/restore");
 
@@ -75,7 +81,7 @@ class IniTest extends TestCase
     }
 
 
-    public function testCleanup()
+    public function testCleanup1(): void
     {
         ini_set("include_path", "/tmp/cleanup");
 
@@ -87,7 +93,7 @@ class IniTest extends TestCase
     }
 
 
-    public function testExternalActions()
+    public function testExternalActions1(): void
     {
         $this->ini->set("include_path", "/tmp/custom");
 

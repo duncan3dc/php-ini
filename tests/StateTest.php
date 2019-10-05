@@ -8,17 +8,20 @@ use PHPUnit\Framework\TestCase;
 use function ini_get;
 use function ini_set;
 
-class StateTest extends TestCase
+final class StateTest extends TestCase
 {
+    /** @var State */
     private $state;
 
-    public function setUp()
+
+    /** @inheritDoc */
+    public function setUp(): void
     {
         $this->state = new State();
     }
 
 
-    public function testCall()
+    public function testCall1(): void
     {
         $hasRun = false;
 
@@ -32,7 +35,7 @@ class StateTest extends TestCase
     }
 
 
-    public function testCallParams()
+    public function testCallParams1(): void
     {
         $result = $this->state->call(function ($input) {
             return $input;
@@ -42,7 +45,7 @@ class StateTest extends TestCase
     }
 
 
-    public function testCallException()
+    public function testCallException1(): void
     {
         ini_set("include_path", "/tmp/default");
 
@@ -64,7 +67,7 @@ class StateTest extends TestCase
     }
 
 
-    public function testSet()
+    public function testSet1(): void
     {
         ini_set("include_path", "/tmp/default");
 
@@ -80,13 +83,15 @@ class StateTest extends TestCase
     }
 
 
-    public function testGet1()
+    public function testGet1(): void
     {
         $this->state->set("include_path", "/tmp/override");
 
         $this->assertSame("/tmp/override", $this->state->get("include_path"));
     }
-    public function testGet3()
+
+
+    public function testGet2(): void
     {
         $this->assertNull($this->state->get("does_not_exist"));
     }
