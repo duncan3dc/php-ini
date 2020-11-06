@@ -12,7 +12,7 @@
         "role": "Developer"
     }],
     "require": {
-        "php": "^7.2"
+        "php": "^7.2 || ^8.0"
     },
     "require-dev": {
         "maglnet/composer-require-checker": "^2.0",
