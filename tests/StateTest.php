@@ -17,7 +17,7 @@ final class StateTest extends TestCase
 
 
     /** @inheritDoc */
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->state = new State();
     }
