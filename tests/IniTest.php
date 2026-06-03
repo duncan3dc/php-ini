@@ -16,14 +16,14 @@ final class IniTest extends TestCase
 
 
     /** @inheritDoc */
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->ini = new Ini();
     }
 
 
     /** @inheritDoc */
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         $this->ini->cleanup();
     }
