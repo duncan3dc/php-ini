@@ -5,7 +5,7 @@ Full documentation is available at https://duncan3dc.github.io/php-ini/
 PHPDoc API documentation is also available at [https://duncan3dc.github.io/php-ini/api/](https://duncan3dc.github.io/php-ini/api/namespaces/duncan3dc.Laravel.html)  
 
 [![release](https://poser.pugx.org/duncan3dc/php-ini/version.svg)](https://packagist.org/packages/duncan3dc/php-ini)
-[![build](https://github.com/duncan3dc/php-ini/workflows/buildcheck/badge.svg?branch=master)](https://github.com/duncan3dc/php-ini/actions?query=branch%3Amaster+workflow%3Abuildcheck)
+[![build](https://github.com/duncan3dc/php-ini/workflows/buildcheck/badge.svg?branch=main)](https://github.com/duncan3dc/php-ini/actions?query=branch%3Amain+workflow%3Abuildcheck)
 [![coverage](https://codecov.io/gh/duncan3dc/php-ini/graph/badge.svg)](https://codecov.io/gh/duncan3dc/php-ini)
 
 
