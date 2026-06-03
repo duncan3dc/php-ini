@@ -59,7 +59,6 @@ final class IniTest extends TestCase
         $expected = ini_get(Settings::INCLUDE_PATH);
         if (!$expected) {
             $this->markTestSkipped("Unable to find the current include_path");
-            return;
         }
 
         $result = $this->ini->get(Settings::INCLUDE_PATH);

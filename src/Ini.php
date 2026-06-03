@@ -9,7 +9,7 @@ use function ini_set;
 class Ini implements ConfigInterface
 {
     /**
-     * @var array $original The original ini settings to restore.
+     * @var array<string, string> $original The original ini settings to restore.
      */
     private $original = [];
 
@@ -21,7 +21,10 @@ class Ini implements ConfigInterface
     {
         # If we've not stashed the original value of this setting then get it now
         if (!array_key_exists($key, $this->original)) {
-            $this->original[$key] = ini_get($key);
+            $original = ini_get($key);
+            if ($original !== false) {
+                $this->original[$key] = $original;
+            }
         }
 
         ini_set($key, $value);

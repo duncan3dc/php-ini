@@ -10,7 +10,7 @@ class State implements ConfigInterface
     private $ini;
 
     /**
-     * @var array $settings The settings to use when calling.
+     * @var array<string, string> $settings The settings to use when calling.
      */
     private $settings = [];
 
